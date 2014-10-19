@@ -1,0 +1,143 @@
+﻿ /*居中*/
+.getCenter (@x, @y) {left:50%; right:50%; top:50%; bottom:50%; margin-left:- @x/2; margin-top: - @y/2;}
+/*圆角*/
+.getBorderRadius (@m) {
+	border-radius:@m;
+	-webkit-border-radius:@m;
+	-moz-border-radius:@m;
+	-ms-border-radius:@m;
+}
+/*过渡*/
+.getTransition  (@transition) {
+	-webkit-transition:@transition; 
+	-moz-transition:@transition; 
+	-o-transition:@transition; 
+	-ms-transition:@transition; 
+	transition:@transition; 
+}
+/*形变*/
+.getTransform (@transform) {
+	-webkit-transform:@transform; 
+	-moz-transform:@transform; 
+	-o-transform:@transform; 
+	-ms-transform:@transform; 
+	transform:@transform; 
+}
+/* 梯度渐变 */
+.getGradient(@type, @color1, @color2) {
+	background:-moz-linear-gradient(@type, @color1, @color2);/*Mozilla*/
+	background:-webkit-linear-gradient(@type, @color1, @color2);/*new gradient for Webkit*/
+	background:-o-linear-gradient(@type, @color1, @color2); /*Opera11*/
+	background:-ms-linear-gradient(@type, @color1, @color2); /*Ie 11+*/
+	filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr= @color1,endcolorstr= @color2,gradientType=0); /*Ie 10-*/
+}
+/* 阴影 */
+.getBoxShdow (@boxshdow){
+	-webkit-box-shadow:@boxshdow;
+	-moz-box-shadow:@boxshdow;
+	-o-box-shadow:@boxshdow;
+	-ms-box-shadow:@boxshdow;
+	box-shadow:@boxshdow;
+}
+
+@color1:#149b70; 
+@animateTime : 300ms;
+@color2:#149b88;
+
+html{height:100%;width:100%;}
+body{padding:60px 0 70px;position:relative;min-height:100%;font-family:'微软雅黑';}
+.kba{color:@color1;}
+.kba:hover{color:lighten(@color1,10%);}
+header{border-top:5px solid @color1;font-size:24px;color:#777;font-family:'黑体' ;font-weight:bold;line-height:2em;background:#eee;padding-left:40px;height:60px;top:0px;width:100%;
+	aside{right:40px;bottom:0px;font-size:16px;line-height:2em;
+		li{cursor:pointer;width:54px;text-align:center;}
+	}
+}
+.header_line{bottom:0px;left:0px;width:54px;height:4px;background:@color1;
+	.getTransition(all ease @animateTime);
+}
+.area_login{
+	width:100%;height:100%;
+	.box_login{
+		width:400px;right:0;padding: 50px 40px 20px 0;margin:20px 20px 0 0;border-left:5px solid @color1;	background:rgba(250,250,250,.8);
+		.getBoxShdow(2px 2px 5px #333;);
+	}
+}
+footer{
+	bottom:0px;left:0px;width:100%;height:60px;background:#eee;padding:20px;
+}
+.box_message{position:fixed;width:400px;height:100%;border-left:5px solid @color1;border-top:5px solid @color1;background:#eee;top:0px;right:0px;z-index:999;}
+.wall_paper{position:absolute;top:0px;left:0;width:100%;height:100%;z-index:-99;}
+.btn-primary{background:@color1;}
+.btn-primary:hover{background:lighten(@color1,10%);border-color:lighten(@color1,10%);}
+
+.modal-header{background:@color1;color:#fff;padding:10px 15px;}
+.modal-header .close{color:#fff;opacity:.6;margin:3px;}
+.modal-header .close:hover{opacity:1;}
+.modal-content{background:rgba(250,250,250,.8);
+	.getBorderRadius(0px);
+}
+
+.head_detail,.mykb{width:1000px;margin:0 auto;}
+.nav_box{background:url('../images/home_icon.jpg') no-repeat 0 0;width:1000px;height:52px;margin:10px auto;
+		
+		li{
+			width:200px;margin-top:5px;
+			a{display:inline-block;margin:5px;width:100%;height:40px;font-size:16px;color:#000;text-align:center;line-height:40px;padding:0;margin:0;
+			.getTransition(all @animateTime ease);
+			}
+			a:first-child{margin-left:2%;}
+			a:hover,.active{text-decoration:none;background:@color1;color:#fff;
+				.getBorderRadius(5px);
+			}
+		}
+		
+		.secondli{
+			width:150px;
+			a{display:inline-block;margin:auto;width:100%;height:40px;font-size:16px;color:#000;text-align:center;line-height:40px;
+			.getTransition(all @animateTime ease);
+			}
+			a:first-child{margin-left:2%;}
+			a:hover,.active{text-decoration:none;background:@color1;color:#fff;
+				.getBorderRadius(5px);
+			}
+		}		
+}
+.nav-pills{
+	
+	>li.active {
+		>a{
+			color: @color1;color:#fff;
+			background-color: @color1;color:#fff;
+		}
+	}
+}
+.mykb{
+	border:1px solid #ccc;padding:16px;
+	.getBoxShdow(2px 2px 5px #333);
+}
+.img_photo{width:200px;margin:16px 0;}
+
+.ul_result{
+	width:100%;font-size:14px;border-right:1px solid #ccc;color:#777;padding-right:16px;
+	li{
+		line-height:34px;cursor:pointer;padding-left:0px;
+		margin-bottom:2px;
+		.getTransition(all @animateTime ease);
+		.getBorderRadius(5px);
+		span{margin:0 6px;}
+	}
+	li:hover,>.active{padding-left:24px;background:@color1;color:#fff;}
+}
+/* kb-mykb */
+.infocenter{
+	h3{
+		color:@color1
+	}
+	li{
+		color:@color2
+	}
+	
+}
+
+.table  .head_kb > td{background:#eee;border-top:4px solid @color1;}

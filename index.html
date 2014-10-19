@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>myFirstPage</title>
+		<!--[if IE]>
+		<script type="text/javascript" src="./lib/html5.js"></script>
+		<style>
+			article, aside, dialog, figure, footer, header, hgroup, menu, nav, section { display: block; }
+		</style>
+		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css"></link>
+		<link type="text/css" rel="stylesheet" href="./stylesheets/reset.css"></link>
+		<link type="text/css" rel="stylesheet" href="./stylesheets/common.css"></link>
+		<link type="text/css" rel="stylesheet" href="./stylesheets/zxx.lib.css"></link>
+		<link rel="stylesheet" href="./stylesheets/myStyle.css" charset="utf-8"></link>
+	</head>
+	<body class="ovh">
+		<header class="abs">
+			康宝中心服务平台
+			<aside class="abs">
+				<ul>
+					<li class="l active " >登陆</li>
+					<li class="l "  data-toggle="modal" data-target="#myModal">注册</li>
+					<li class="l">帮助</li>
+				</ul>
+				<div class="header_line abs"></div>
+			</aside>
+		</header>
+		<section class="area_login">
+			<div class="box_login abs">
+				<form class="form-horizontal" role="form" id="form">
+					<div class="form-group" group-required="true">
+						<label for="email" class="col-lg-4 control-label">姓名</label>
+						<div class="col-lg-8">
+							<input type="email" class="form-control" id="name" placeholder="name" 
+								 normal-title="请填写您的电子邮箱" validate-type="name" >
+						</div>
+					</div>
+					<div class="form-group" group-required="true">
+						<label for="email" class="col-lg-4 control-label">密码</label>
+						<div class="col-lg-8">
+							<input type="email" class="form-control" id="password" placeholder="password" 
+								 normal-title="请填写您的电子邮箱" validate-type="password" >
+						</div>
+					</div>
+					<div class="form-group" group-required="true">
+						<label for="email" class="col-lg-4 control-label">验证码</label>
+						<div class="col-lg-4">
+							<input type="email" class="form-control" id="code" placeholder="code" 
+								 normal-title="请填写您的电子邮箱" validate-type="checkcode" >
+						</div>
+						<div class="col-lg-4"></div>
+					</div>
+					<div class="form-group" group-required="true">
+						<div class="col-lg-4"></div>
+						<div class="col-lg-4">
+							<div class="checkbox" style="padding-top:0px;">
+								<label>
+									<input type="checkbox" value="">
+									记住密码
+								</label>
+							</div>
+						</div>
+						<div class="col-lg-4"><a class="kba" href="#">忘记密码</a></div>
+					</div>
+					
+				</form>
+				<button type="button" class="btn btn-primary" style="display:block;margin:0 auto;" onclick="window.location='detail_p.html'">登录</button>
+			</div>
+		</section>
+		<footer class="abs tc">
+			@版权信息
+		</footer>
+		<img class="wall_paper" src="./images/img18.jpg">
+		<!-- 模态框start -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title fw" id="myModalLabel">信息注册</h4>
+			  </div>
+			  <div class="modal-body">
+				<form class="form-horizontal" role="form" id="form">
+					<div class="form-group" group-required="true">
+						<label for="address" class="col-lg-3 control-label">您的电子邮箱</label>
+						<div class="col-lg-9">
+							<input type="text" class="form-control" name="value1" placeholder="email"
+								 normal-title="请填写您的家庭住址">
+						</div>
+					</div>
+					<div class="form-group" group-required="true">
+						<label for="address" class="col-lg-3 control-label">设置密码</label>
+						<div class="col-lg-9">
+							<input type="text" class="form-control" name="value1" placeholder="password"
+								 normal-title="请填写您的家庭住址">
+						</div>
+					</div>
+					<div class="form-group" group-required="true">
+						<label for="address" class="col-lg-3 control-label">请确认您的密码</label>
+						<div class="col-lg-9">
+							<input type="text" class="form-control" name="value1" placeholder="password"
+								 normal-title="请填写您的家庭住址">
+						</div>
+					</div>
+					<div class="form-group" group-required="true">
+						<label for="address" class="col-lg-3 control-label">您的真实姓名</label>
+						<div class="col-lg-9">
+							<input type="text" class="form-control" name="value1" placeholder="name"
+								 normal-title="请填写您的家庭住址">
+						</div>
+					</div>
+					<div class="form-group" group-required="true">
+						<label for="sex" class="col-lg-3 control-label">性别</label>
+						<div class="col-lg-9">
+							<select class="form-control" name="value2" 
+								 normal-title="请选择您的性别">
+							  <option value=""></option>	
+							  <option value="1">男</option>
+							  <option value="0">女</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group" group-required="true">
+						<label for="address" class="col-lg-3 control-label">出生日期</label>
+						<div class="col-lg-9">
+							<input type="text" class="form-control" name="value1" placeholder="birthday"
+								 normal-title="请填写您的家庭住址">
+						</div>
+					</div>
+					<div class="form-group" group-required="true">
+						<label for="sex" class="col-lg-3 control-label">用户类型</label>
+						<div class="col-lg-9">
+							<select class="form-control" name="value2" 
+								 normal-title="请选择您的用户类型">
+							  <option value=""></option>	
+							  <option value="1">医生</option>
+							  <option value="0">患者</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group" group-required="true">
+						<label for="address" class="col-lg-3 control-label">固定电话</label>
+						<div class="col-lg-9">
+							<input type="text" class="form-control" name="value1" placeholder="telphone"
+								 normal-title="请填写您的家庭住址">
+						</div>
+					</div>
+					<div class="form-group" group-required="true">
+						<label for="address" class="col-lg-3 control-label">移动电话</label>
+						<div class="col-lg-9">
+							<input type="text" class="form-control" name="value1" placeholder="mobilephone
+								 normal-title="请填写您的家庭住址">
+						</div>
+					</div>
+					<div class="form-group" group-required="true">
+						<label for="address" class="col-lg-3 control-label">输入验证码</label>
+						<div class="col-lg-9">
+							<input type="text" class="form-control" name="value1" placeholder="code"
+								 normal-title="请填写您的家庭住址">
+						</div>
+					</div>
+					<div class="form-group" group-required="true">
+						<div class="col-lg-3"></div>
+						<div class="col-lg-5">
+							<div class="checkbox" style="padding-top:0px;">
+								<label>
+									<input type="checkbox" value="">
+									已阅读相关法规并同意条款
+								</label>
+							</div>
+						</div>
+						<div class="col-lg-4"><a class="kba" href="#">相关条款	</a></div>
+					</div>
+				</form>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-primary"  id="modal_btn_add">提交</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	</body>
+	<script src="./lib/jquery-1.10.2.min.js"></script>
+	<script src="./lib/bootstrap/js/bootstrap.js"></script>
+	<script src="./lib/myJquery.debug.js"></script>	
+</html>

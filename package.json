@@ -1,0 +1,15 @@
+{
+  "name": "myJquery",
+  "version": "0.1.0",
+  "description": "myGrunt",
+  "private":true,
+  "author": "yansm",
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-less": "*"
+  }
+}
