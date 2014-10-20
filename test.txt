@@ -1,6 +1,0 @@
-hello duner
-<<<<<<< HEAD
-hello sanmu
-=======
-hello cheng
->>>>>>> origin/master
