@@ -146,3 +146,37 @@ footer{
 }
 
 .table  .head_kb > td{background:#eee;border-top:4px solid @color1;}
+
+
+/* 服务申请css */
+.kb_tabtable{
+	ul{
+		li{
+			a{
+				color:@color1;
+			}
+		}
+	}
+}
+.doctor_info{
+	width:254px;float:left;margin:3px;height:450px;cursor:pointer;border:3px solid #ccc;
+	.doctor_photo{
+		width:240px;height:240px;overflow:hidden;
+		img{width:100%;}
+	}
+	.content{height:105px;margin-bottom:10px;overflow:hidden;}
+}
+.doctor_info_current{border-color:@color1;}
+.doctor_time{
+	width:100%;
+	li{float:left;width:13%;border:1px solid #ccc;.getBorderRadius(5px);margin:3px;text-align:center;padding:0 5px 5px;
+		h2{font-size:16px;color:@color1;}
+		h3{font-size:20px;color:@color1;}
+		.doctor_time_pm,.doctor_time_am{width:100%;height:100px;background:#ccc;line-height:100px;text-align:center;color:#999;margin-bottom:5px;
+			.getTransition(@animateTime);
+		}
+		.doctor_time_pm:before,.doctor_time_am:before{content:"不可选"}
+		.doctor_time_can{background:#CCDBF0;cursor:pointer;}
+		.doctor_time_can:before{content:"可选"}
+	}
+}
