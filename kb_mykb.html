@@ -113,36 +113,113 @@
 						 <div class='span3'>
 							<img class="img_photo" src="./images/photo.png">
 						</div>
-						<div class="span4 offset4 infocenter">
+						<div class="span7 offset2 infocenter">
 							<div><h3>信息中心</h3></div>
 							<div class="span4">
 								<ul>
-									<li>hello</li>
-									<li>hello</li>
-									<li>hello</li>
-									<li>hello</li>
-									<li>hello</li>
+									
 								</ul>
 							</div>
 						</table>
 						</div>
 						<div class="span12">
-							<div>
+							<div class="span6">
 								<div>
-									<h3>详细信息</h3>
+									<h3>基本信息</h3>
 								</div>
 							</div>
-							<div class="span12">
+								
+						
+							<div class="offset4 span2">
+								<div>
+									<button value="1" id="btn-primary" class="btn btn-primary">编辑</button>
+								</div>
+							</div>
+								
+							
+							<div id="div-primary-show" class="span11">
 								<table  class="table table-condensed mt20">
 									<tr>
-										<td>姓名：</td><td>闫三木</td><td>姓名：</td><td>闫三木</td>
+										<td>姓名：</td><td>闫三木</td><td>性别：</td><td>男</td>
 									</tr>
 									<tr>
-										<td>性别：</td><td>男</td><td>姓名：</td><td>闫三木</td>
+										<td>联系方式：</td><td>18611572332</td><td>家庭住址：</td><td>清华大学紫荆公寓</td>
 									</tr>
 									<tr>
-										<td>姓名：</td><td>闫三木</td><td>姓名：</td><td>闫三木</td>
+										<td>收货地址：</td><td>清华大学紫荆公寓</td><td>身份证号：</td><td>1101212545101851</td>
 									</tr>
+								</table>
+							</div>
+							<div id="div-primary-edit" class="span11" style="display:none">
+								<table  class="table table-condensed mt20">
+									<tr>
+										<td>姓名：</td><td><input class="input-username" type='text' value=""/></td>
+										<td>性别：</td>
+										<td>
+											<label class='radio inline'>
+												<input id='radio-man' name="sex" type='radio' value='man' />
+												男
+											</label>
+											<label class='radio inline'>
+												<input id='radio-woman' name="sex" type='radio' value='woman'  />
+												女
+											</label>
+										</td>
+									</tr>
+									<tr>
+										<td>*联系方式：</td><td><input id='input-telphone' type='text' /></td><td>家庭住址：</td><td><input id='input-address' type='text' /></td>
+									</tr>
+									<tr>
+										<td>收货地址：</td><td><span class='input-xlarge uneditable-input'>不能修改</span></td><td>*身份证号：</td><td><input id='input-IDnum' type='text' /></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<div class="span12">
+							<div class="span6">
+								<div>
+									<h3>健康信息</h3>
+								</div>
+							</div>
+								
+						
+							<div class="offset4 span2">
+								<div>
+									<button value="1" id="btn-health" class="btn btn-primary">编辑</button>
+								</div>
+							</div>
+							
+							<div id="div-health-show" class="span11" \>
+								<table class="table table-condensed mt20">
+									<tr>
+										<td>身高：</td><td>175cm</td><td>体重：</td><td>65kg</td>
+									</tr>
+									<tr>
+										<td>家族病史</td><td>无</td><td></td><td></td>
+									</tr>
+								</table>
+								
+							</div>
+							
+							<div id="div-health-edit" class="span11" style="display:none">
+								<table  class="table table-condensed mt20">
+									<tr>
+										<td>身高：</td><td><div class='input-append'>
+												<input id='input-height' type='text' />
+												<span class='add-on'>cm</span>
+											</div></td>
+										<td>体重：</td>
+										<td>
+											<div class='input-append'>
+												<input id='input-weight' type='text' />
+												<span class='add-on'>kg</span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>家族疾病史</td><td colspan=3><textarea class='input-block-level' id='textarea-familyhistory' placeholder='家族疾病史' rows='3'></textarea></td>
+									</tr>
+									
 								</table>
 							</div>
 						</div>
@@ -162,5 +239,87 @@
 	<script src="./lib/bootstrap/js/bootstrap.js"></script>
 	<script src="./lib/plugin/bootstrap_hover_dropdown/twitter-bootstrap-hover-dropdown.min.js"></script>
 	<script src="./lib/myJquery.debug.js"></script>	
+	<script>
+		$(function(){
+			$('#btn-primary').click(function(){
+				if(this.value==1){
+					//进入编辑模式
+					this.value=2;
+					$(this).text("保存");
+					$(this).removeClass("btn-primary");
+					$(this).addClass("btn-danger");
+					$('#div-primary-show').hide();
+					$('#div-primary-edit').show();
+					
+					$('.input-username').val($userinfo['name']);
+					$("input[name^='sex']").each(function(){
+						$(this).removeAttr("checked");
+					});
+					$('#radio-'+$userinfo['sex']).attr("checked",true);
+					
+					$('#input-telphone').val($userinfo['telphone']);
+					$('#input-address').val($userinfo['address']);
+					$('#input-IDnum').val($userinfo['IDnum']);
+					
+				}else if(this.value==2){
+					//进入保存模式 
+					this.value=1;
+					$(this).removeClass("btn-danger");
+					$(this).addClass("btn-primary");
+					$(this).text("编辑");
+					$('#div-primary-edit').hide();
+					$('#div-primary-show').show();
+					$.ajax({
+						 type: "GET",
+						 url: url,
+						 dataType: "json",
+						 success: function(data){
+								console.log(data);
+							},
+						  error:function(XMLHttpRequest,errorinfo){
+								alert("连接失败~");
+						  }								  
+					 });
+		
+				}
+				
+			});
+			$('#btn-health').click(function(){
+				if(this.value==1){
+					//进入编辑模式
+					this.value=2;
+					$(this).removeClass("btn-primary");
+					$(this).addClass("btn-danger");
+					$(this).text("保存");
+					$('#div-health-show').hide();
+					$('#div-health-edit').show();
+					$('#input-height').val($healthinfo['height']);
+					$('#input-weight').val($healthinfo['weight']);
+					$('#textarea-familyhistory').val($healthinfo['familyhistory']);
+				}else if(this.value==2){
+					//进入保存模式
+					this.value=1;
+					$(this).removeClass("btn-danger");
+					$(this).addClass("btn-primary");
+					$(this).text("编辑");
+					$('#div-health-edit').hide();
+					$('#div-health-show').show();
+					$.ajax({
+						 type: "GET",
+						 url: url,
+						 dataType: "json",
+						 success: function(data){
+								console.log(data);
+								  },
+						  error:function(XMLHttpRequest,errorinfo){
+								alert("连接失败~");
+						  }								  
+					 });
+		
+				}
+				
+			});
+		});
+	</script>
 	
 </html>
