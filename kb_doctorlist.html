@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>myFirstPage</title>
+		<!--[if IE]>
+		<script type="text/javascript" src="./lib/html5.js"></script>
+		<style>
+			article, aside, dialog, figure, footer, header, hgroup, menu, nav, section { display: block; }
+		</style>
+		<![endif]-->
+		<link type="text/css" rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css"></link>
+		<link type="text/css" rel="stylesheet" href="./stylesheets/reset.css"></link>
+		<link type="text/css" rel="stylesheet" href="./stylesheets/common.css"></link>
+		<link type="text/css" rel="stylesheet" href="./stylesheets/zxx.lib.css"></link>
+		<link rel="stylesheet" href="./stylesheets/myStyle.css" charset="utf-8"></link>
+	</head>
+	<body class="">
+		<header class="abs">
+			<div class="head_detail rel">
+				康宝中心服务平台
+				<aside class="abs">
+					欢迎您，尊敬的<a class="kba" href="#">闫先生</a>，<a class="kba" href="index.html">注销</a>
+				</aside>
+			</div>
+		</header>
+		<nav class="nav_box">
+		
+			<ul class="nav-pills"> 
+				
+				<li class="dropdown active">
+					<a href="#" class = "dropdown-toggle" data-toggle="dropdown">
+						我的康保
+					</a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+						<li class="secondli">
+							<a href="#" >
+								个人设置
+							</a>
+						</li>
+						<li class="secondli">
+							<a href="#" >
+								消息中心
+							</a>
+						</li>
+						<li class="secondli">
+							<a href="#" >
+								XXX
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class = "dropdown-toggle" data-toggle="dropdown">
+						康保服务
+					</a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+						<li class="secondli">
+							<a href="#" >
+								症状自查
+							</a>
+						</li>
+						<li class="secondli">
+							<a href="#" >
+								专家时间表
+							</a>
+						</li>
+						<li class="secondli">
+							<a href="#" >
+								申请服务
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class = "dropdown-toggle" data-toggle="dropdown">
+						康保档案
+					</a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+						<li class="secondli">
+							<a href="#" >
+								档案
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class = "dropdown-toggle" data-toggle="dropdown">
+						康友汇
+					</a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+						<li class="secondli">
+							<a href="#" >
+								康友汇
+							</a>
+						</li>
+					</ul>
+				</li>
+			
+			</ul>
+		</nav>
+		<section class="mykb fix">
+			<div class="row-fluid">
+				<div class="span12">
+					<form class="form-horizontal" role="form">
+					<div class="span6">
+						<div class="control-group">  
+							   <span class="control-label">选择医院</span>  
+							   <div class="controls form-inline">  
+									<select>
+									  <option>广安门医院</option>
+									  <option>广安门医院</option>
+									  <option>广安门医院</option>
+									  <option>广安门医院</option>
+									  <option>广安门医院</option>
+									</select>
+							   </div>  
+							   
+						</div>  
+					</div>
+					<div class="span6">
+						<div class="control-group">  
+							   <span class="control-label">选择科室</span>  
+							   <div class="controls form-inline">  
+									<select>
+									  <option>神经科</option>
+									 
+									</select>
+							   </div>  
+							   
+						</div>  
+					</div>
+						</form>
+					
+				</div>
+			</div>
+			 <hr class='hr-normal' />
+			<div class='row-fluid'>
+				<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                
+				</table>
+			</div>
+			
+		</section>
+		<footer class="abs tc">
+			@版权信息
+		</footer>
+		
+	</body>
+	<script src="./lib/jquery-1.10.2.min.js"></script>
+	<script src="./lib/bootstrap/js/bootstrap.js"></script>
+	<script src="./lib/plugin/bootstrap_hover_dropdown/twitter-bootstrap-hover-dropdown.min.js"></script>
+	<script src="./lib/plugin/DataTables/jquery.dataTables.js"></script>	
+	<script src="./lib/plugin/DataTables/DT_bootstrap.js"></script>	
+	<script src="./lib/myform.js"></script>
+	<script src="./lib/myJquery.debug.js"></script>	
+	<script >
+            $(document).ready(function() {
+                var table=$('#example').dataTable({
+					"bDestroy" : true,
+					"bProcessing" : true,
+					
+					"fnDrawCallback" : function() {
+						$("#example tbody tr").unbind("click");
+						$("#example tbody tr").click(function(e) {
+							alert(table.fnGetData(this)[0]);
+						});
+
+					},
+					"aoColumns" : [ 
+					{
+						"bSearchable" : false,
+						"bVisible" : false,
+						"sTitle" : "模型id(隐藏)",
+						"sClass" : "center"
+					}, {
+						"bSearchable" : false,
+						"bVisible" : false,
+						"sTitle" : "被隐藏的模型路径信息",
+						"sClass" : "center"
+					}, {
+						"sTitle" : "hello",
+						"sClass" : "center"
+					}, {
+						"sTitle" : "hello",
+						"sClass" : "center"
+					}]
+				});
+				oTable = $('#table').dataTable(
+				{
+					"bDestroy" : true,
+					"bProcessing" : true,
+					"bPaginate": true,
+					"bFilter": false,
+					//服务器端分页必需的三个参数
+					"sAjaxSource" : "url",
+					"bServerSide": true,
+					"fnServerData": function ( sSource, aoData, fnCallback, oSettings ) {
+						 oSettings.jqXHR = $.ajax( {
+								"dataType": 'json',
+								"type": "get",
+								"url": sSource,
+								"data": aoData,
+								"success":  fnCallback
+							  } );
+						 
+					},
+					
+					"fnServerParams" : function(aoData) {
+
+						aoData.push({
+							"name" : "userID",
+							"value" : userID
+						});
+
+					},
+					"fnDrawCallback" : function() {
+						$("#modelTable tbody tr").unbind("click");
+						$("#modelTable tbody tr").click(function(e) {
+							alert(oTable.fnGetData(this)[1]);
+						});
+
+					}
+					
+				});
+            });
+    </script>
+	
+</html>

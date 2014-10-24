@@ -191,9 +191,14 @@
 								</table>
 							</div>
 							<div id="div-primary-edit" class="span11" style="display:none">
+							<form class="form-horizontal" role="form" id="form1">
 								<table  class="table table-condensed mt20">
 									<tr>
-										<td>姓名：</td><td><input class="input-username" type='text' value=""/></td>
+										<td>姓名：</td><td>
+										<div class="form-group" group-required="true">
+											<input class="input-username form-control" type='text' value="" id="name" placeholder="姓名"
+											 normal-title="请填写您的真实姓名" minlength = 2/></td>
+										</div>
 										<td>性别：</td>
 										<td>
 											<label class='radio inline'>
@@ -213,6 +218,7 @@
 										<td>收货地址：</td><td><span class='input-xlarge uneditable-input'>不能修改</span></td><td>*身份证号：</td><td><input id='input-IDnum' type='text' /></td>
 									</tr>
 								</table>
+							</form>
 							</div>
 						</div>
 						<div class="span12">
@@ -278,7 +284,7 @@
 	<script src="./lib/jquery-1.10.2.min.js"></script>
 	<script src="./lib/bootstrap/js/bootstrap.js"></script>
 	<script src="./lib/plugin/bootstrap_hover_dropdown/twitter-bootstrap-hover-dropdown.min.js"></script>
-
+	<script src="./lib/myform.js"></script>
 	<script src="./lib/myJquery.debug.js"></script>	
 	<script>
 		$(function(){
@@ -361,7 +367,12 @@
 				}
 				
 			});
+			
+			
+			//表单验证
+			$('#form1').initForm();
 		});
+		
 	</script>
 	
 </html>
