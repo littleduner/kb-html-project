@@ -30,29 +30,24 @@
 		
 			<ul class="nav-pills"> 
 				
-				<li class="dropdown active">
+				<li class="dropdown ">
 					<a href="#" class = "dropdown-toggle" data-toggle="dropdown">
 						我的康保
 					</a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
 						<li class="secondli">
-							<a href="#" >
+							<a href="kb_mykb.html" >
 								个人设置
 							</a>
 						</li>
 						<li class="secondli">
-							<a href="#" >
-								消息中心
-							</a>
-						</li>
-						<li class="secondli">
-							<a href="#" >
-								XXX
+							<a href="kb_mykb.html" >
+								占位
 							</a>
 						</li>
 					</ul>
 				</li>
-				<li class="dropdown">
+				<li class="dropdown active">
 					<a href="#" class = "dropdown-toggle" data-toggle="dropdown">
 						康保服务
 					</a>
@@ -62,14 +57,14 @@
 								症状自查
 							</a>
 						</li>
-						<li class="secondli">
-							<a href="#" >
-								专家时间表
+						<li  class="secondli">
+							<a href="kb_doctorlist.html" >
+								专家列表
 							</a>
 						</li>
 						<li class="secondli">
-							<a href="#" >
-								申请服务
+							<a href="kb_myservices.html" >
+								我的康保服务
 							</a>
 						</li>
 					</ul>
@@ -138,9 +133,9 @@
 			</div>
 			 <hr class='hr-normal' />
 			<div class='row-fluid'>
-				<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+				<div id="demo" >
                 
-				</table>
+				</div>
 			</div>
 			
 		</section>
@@ -158,36 +153,25 @@
 	<script src="./lib/myJquery.debug.js"></script>	
 	<script >
             $(document).ready(function() {
-                var table=$('#example').dataTable({
-					"bDestroy" : true,
-					"bProcessing" : true,
+               var dataSet = [
+					['广安门医院','神经科','三木','男','<a href="#" class="btn btn-success">查看详情<a><a href="#" class="btn btn-danger">申请关联<a>'],
 					
-					"fnDrawCallback" : function() {
-						$("#example tbody tr").unbind("click");
-						$("#example tbody tr").click(function(e) {
-							alert(table.fnGetData(this)[0]);
-						});
-
-					},
-					"aoColumns" : [ 
-					{
-						"bSearchable" : false,
-						"bVisible" : false,
-						"sTitle" : "模型id(隐藏)",
-						"sClass" : "center"
-					}, {
-						"bSearchable" : false,
-						"bVisible" : false,
-						"sTitle" : "被隐藏的模型路径信息",
-						"sClass" : "center"
-					}, {
-						"sTitle" : "hello",
-						"sClass" : "center"
-					}, {
-						"sTitle" : "hello",
-						"sClass" : "center"
-					}]
-				});
+				];
+				 
+				$(document).ready(function() {
+					$('#demo').html( '<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" cellspacing="0" id="example"></table>' );
+				 
+					$('#example').dataTable( {
+						"data": dataSet,
+						"columns": [
+							{ "title": "医院" },
+							{ "title": "科室" },
+							{ "title": "姓名" },
+							{ "title": "性别", "class": "center" },
+							{ "title": "操作", "class": "center" }
+						]
+					} );    
+				} );
 				oTable = $('#table').dataTable(
 				{
 					"bDestroy" : true,
